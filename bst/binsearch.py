@@ -56,15 +56,16 @@ See ../bintree/binary_tree.py for explanation of what a binary tree is
 #         return self.size()
 
 
-# class Node(object):
-#     def __init__(self, value):
-#         self.value = value
-#         self.left = None
-#         self.right = None
+class Node(object):
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
 
-# class BinaryTree(object):
-#     def __init__(self, root):
-#         self.root = Node(root)
+
+class BinaryTree(object):
+    def __init__(self, root):
+        self.root = Node(root)
 
 #     def print_tree(self, traversal_type):
 #         if traversal_type == "preorder":
@@ -184,11 +185,6 @@ See ../bintree/binary_tree.py for explanation of what a binary tree is
 #             return 0
 
 #         return 1 + self.r_sizeOfTree(node.left) + self.r_sizeOfTree(node.right)
-
-
-
-
-
 
 
 # tree = BinaryTree(1)
