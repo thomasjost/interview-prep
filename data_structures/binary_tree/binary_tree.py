@@ -4,6 +4,8 @@
 A binary tree is a tree data structure in which each node has at most two children,
 which are referred to as the left child and the right child.
 """
+
+
 class Queue(object):
     def __init__(self):
         self.items = []
@@ -27,6 +29,7 @@ class Queue(object):
 
     def size(self):
         return len(self.items)
+
 
 class Stack(object):
     def __init__(self):
@@ -59,6 +62,7 @@ class Node(object):
         self.left = None
         self.right = None
 
+
 class BinaryTree(object):
     def __init__(self, root):
         self.root = Node(root)
@@ -75,6 +79,8 @@ class BinaryTree(object):
         elif traversal_type == "reverselevelorder":
             return self.reverse_levelorder_print(tree.root)
         elif traversal_type == "height":
+            return self.height(tree.root)
+        elif traversal_type == "min_height":
             return self.height(tree.root)
         elif traversal_type == "i_size":
             return self.i_sizeOfTree()
@@ -156,6 +162,15 @@ class BinaryTree(object):
 
         return 1 + max(left_height, right_height)
 
+    def min_height(self, node):
+        if node is None:
+            return -1
+
+        left_height = self.height(node.left)
+        right_height = self.height(node.right)
+
+        return 1 + min(left_height, right_height)
+
     def i_sizeOfTree(self):
         if self.root is None:
             return 0
@@ -183,11 +198,6 @@ class BinaryTree(object):
         return 1 + self.r_sizeOfTree(node.left) + self.r_sizeOfTree(node.right)
 
 
-
-
-
-
-
 tree = BinaryTree(1)
 tree.root.left = Node(2)
 tree.root.right = Node(3)
@@ -203,5 +213,6 @@ print(tree.print_tree("postorder"))
 print(tree.print_tree("levelorder"))
 print(tree.print_tree("reverselevelorder"))
 print(tree.print_tree("height"))
+print(tree.print_tree("min_height"))
 print(tree.print_tree("i_size"))
 print(tree.print_tree("r_size"))
